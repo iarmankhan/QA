@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b32e2fa1-afeb-4c4f-be3a-767240368717" name="Default Changelist" comment="">
+    <list default="true" id="b32e2fa1-afeb-4c4f-be3a-767240368717" name="Default Changelist" comment="Minor changes">
+      <change afterPath="$PROJECT_DIR$/app/Question.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_14_152834_create_questions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +158,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576335161015</updated>
-      <workItem from="1576335166581" duration="1861000" />
+      <workItem from="1576335166581" duration="4243000" />
     </task>
     <task id="LOCAL-00001" summary="Auth scaffolding / vue&#10;&#10;&#10;-Added laravel/ui package&#10;-Generate auth scaffolding&#10;-Installed vue&#10;-Installed npm packages&#10;-Setup env for db/app name">
       <created>1576336592733</created>
@@ -163,7 +167,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576336592733</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Minor changes">
+      <created>1576337063562</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576337063562</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Minor changes">
+      <created>1576337075860</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1576337075860</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,12 +190,17 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Auth scaffolding / vue&#10;&#10;&#10;-Added laravel/ui package&#10;-Generate auth scaffolding&#10;-Installed vue&#10;-Installed npm packages&#10;-Setup env for db/app name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auth scaffolding / vue&#10;&#10;&#10;-Added laravel/ui package&#10;-Generate auth scaffolding&#10;-Installed vue&#10;-Installed npm packages&#10;-Setup env for db/app name" />
+    <MESSAGE value="Minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="282" y="20" key="CommitChangelistDialog2" timestamp="1576337063315">
+    <state x="282" y="20" key="CommitChangelistDialog2" timestamp="1576346464700">
       <screen x="0" y="20" width="1366" height="748" />
     </state>
-    <state x="282" y="20" key="CommitChangelistDialog2/0.20.1366.748@0.20.1366.748" timestamp="1576337063315" />
+    <state x="282" y="20" key="CommitChangelistDialog2/0.20.1366.748@0.20.1366.748" timestamp="1576346464700" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1576345886182">
+      <screen x="0" y="20" width="1366" height="748" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.20.1366.748@0.20.1366.748" timestamp="1576345886182" />
   </component>
 </project>
