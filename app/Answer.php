@@ -7,6 +7,7 @@ use function foo\func;
 
 class Answer extends Model
 {
+    protected $fillable = ['body', 'user_id'];
     public function getBodyHtmlAttribute()
     {
         return \Parsedown::instance()->text($this->body);
