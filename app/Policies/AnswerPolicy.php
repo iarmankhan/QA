@@ -56,6 +56,11 @@ class AnswerPolicy
         return $answer->user_id == $user->id;
     }
 
+    public function accept(User $user, Answer $answer)
+    {
+        return $answer->user_id == $answer->question->user_id;
+    }
+
     /**
      * Determine whether the user can delete the answer.
      *
