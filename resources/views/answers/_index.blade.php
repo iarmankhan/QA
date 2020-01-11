@@ -11,13 +11,33 @@
                 @foreach($answers as $answer)
                     <div class="media">
                         <div class="d-flex flex-column vote-controls">
-                            <a title="This answer is useful" class="vote-up">
+                            <a
+                                title="This answer is useful"
+                                class="vote-up {{ Auth::guest() ? 'off' : '' }}"
+                                href="javascript:{}"
+                                onclick="document.getElementById('upvote-answer-{{ $answer->id }}').submit()"
+                            >
                                 <i class="fas fa-caret-up fa-3x"></i>
                             </a>
-                            <span class="vote-count">120</span>
-                            <a title="This answer is not useful" class="vote-down off">
+                            <form style="display: none" id="upvote-answer-{{ $answer->id }}"
+                                  action="/answers/{{ $answer->id }}/vote" method="POST">
+                                @csrf
+                                <input type="hidden" name="vote" value="1">
+                            </form>
+                            <span class="vote-count">{{ $answer->votes_count }}</span>
+                            <a
+                                title="This answer is not useful"
+                                class="vote-down {{ Auth::guest() ? 'off' : '' }}"
+                                href="javascript:{}"
+                                onclick="document.getElementById('downvote-answer-{{ $answer->id }}').submit()"
+                            >
                                 <i class="fas fa-caret-down fa-3x"></i>
                             </a>
+                            <form style="display: none" id="downvote-answer-{{ $answer->id }}"
+                                  action="/answers/{{ $answer->id }}/vote" method="POST">
+                                @csrf
+                                <input type="hidden" name="vote" value="-1">
+                            </form>
                             @can('accept', $answer)
                             <a
                                 title="Mark this answer as best answer!"

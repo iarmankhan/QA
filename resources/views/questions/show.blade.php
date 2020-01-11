@@ -10,7 +10,8 @@
                             <div class="d-flex align-items-center">
                                 <h3>{{ $question->title }}</h3>
                                 <div class="ml-auto">
-                                    <a href="{{ route('questions.index') }}" class="btn btn-outline-secondary">Browse Questions</a>
+                                    <a href="{{ route('questions.index') }}" class="btn btn-outline-secondary">Browse
+                                        Questions</a>
                                 </div>
                             </div>
                         </div>
@@ -25,7 +26,8 @@
                                 >
                                     <i class="fas fa-caret-up fa-3x"></i>
                                 </a>
-                                <form style="display: none" id="upvote-question-{{ $question->id }}" action="/questions/{{ $question->id }}/vote" method="POST">
+                                <form style="display: none" id="upvote-question-{{ $question->id }}"
+                                      action="/questions/{{ $question->id }}/vote" method="POST">
                                     @csrf
                                     <input type="hidden" name="vote" value="1">
                                 </form>
@@ -38,7 +40,8 @@
                                 >
                                     <i class="fas fa-caret-down fa-3x"></i>
                                 </a>
-                                <form style="display: none" id="downvote-question-{{ $question->id }}" action="/questions/{{ $question->id }}/vote" method="POST">
+                                <form style="display: none" id="downvote-question-{{ $question->id }}"
+                                      action="/questions/{{ $question->id }}/vote" method="POST">
                                     @csrf
                                     <input type="hidden" name="vote" value="-1">
                                 </form>
@@ -51,7 +54,8 @@
                                     <i class="fas fa-star fa-2x"></i>
                                     <span class="favorites-count">{{ $question->favoritesCount }}</span>
                                 </a>
-                                <form style="display: none" id="favorite-question-{{ $question->id }}" action="/questions/{{ $question->id }}/favorites" method="POST">
+                                <form style="display: none" id="favorite-question-{{ $question->id }}"
+                                      action="/questions/{{ $question->id }}/favorites" method="POST">
                                     @csrf
                                     @if($question->is_favorite)
                                         @method('DELETE')
