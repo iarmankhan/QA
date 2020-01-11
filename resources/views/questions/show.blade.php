@@ -17,13 +17,31 @@
                         <hr>
                         <div class="media">
                             <div class="d-flex flex-column vote-controls">
-                                <a title="This question is useful" class="vote-up">
+                                <a
+                                    title="This question is useful"
+                                    class="vote-up {{ Auth::guest() ? 'off' : '' }}"
+                                    href="javascript:{}"
+                                    onclick="document.getElementById('upvote-question-{{ $question->id }}').submit()"
+                                >
                                     <i class="fas fa-caret-up fa-3x"></i>
                                 </a>
-                                <span class="vote-count">120</span>
-                                <a title="This question is not useful" class="vote-down off">
+                                <form style="display: none" id="upvote-question-{{ $question->id }}" action="/questions/{{ $question->id }}/vote" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="vote" value="1">
+                                </form>
+                                <span class="vote-count">{{ $question->votes_count }}</span>
+                                <a
+                                    title="This question is not useful"
+                                    class="vote-down {{ Auth::guest() ? 'off' : '' }}"
+                                    href="javascript:{}"
+                                    onclick="document.getElementById('downvote-question-{{ $question->id }}').submit()"
+                                >
                                     <i class="fas fa-caret-down fa-3x"></i>
                                 </a>
+                                <form style="display: none" id="downvote-question-{{ $question->id }}" action="/questions/{{ $question->id }}/vote" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="vote" value="-1">
+                                </form>
                                 <a
                                     title="Click to mark as favorite!"
                                     class="favorite mt-2 {{ Auth::guest() ? 'off' : ($question->is_favorite ? 'favorited' : '') }}"
