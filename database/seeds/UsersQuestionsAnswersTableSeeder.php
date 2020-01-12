@@ -4,6 +4,7 @@ use App\Answer;
 use App\Question;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsersQuestionsAnswersTableSeeder extends Seeder
 {
@@ -14,9 +15,9 @@ class UsersQuestionsAnswersTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::tabel('answers')->delete();
-        \DB::tabel('questions')->delete();
-        \DB::tabel('users')->delete();
+        DB::table('answers')->delete();
+        DB::table('questions')->delete();
+        DB::table('users')->delete();
 
         factory(User::class, 3)->create()->each(function ($u){
             $u->questions()
