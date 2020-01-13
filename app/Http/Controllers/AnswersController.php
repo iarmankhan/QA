@@ -55,7 +55,7 @@ class AnswersController extends Controller
             'body' => 'required',
         ]));
 
-        if($request->expectsJson())
+        if(request()->expectsJson())
         {
             return response()->json([
                 'message' => 'Your Question updated successfully!',
@@ -69,15 +69,18 @@ class AnswersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Question $question
-     * @param Answer $answer
-     * @return RedirectResponse
      */
     public function destroy(Question $question, Answer $answer)
     {
         $this->authorize('delete', $answer);
 
         $answer->delete();
+
+        if(\request()->expectsJson()){
+            return response()->json([
+               'message' => 'Your answer has been deleted!'
+            ]);
+        }
 
         return back()->with('success', 'Your answer has been deleted!');
     }
