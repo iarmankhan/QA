@@ -46,11 +46,6 @@ class AnswersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param Question $question
-     * @param Answer $answer
-     * @return RedirectResponse
-     * @throws AuthorizationException
      */
     public function update(Request $request, Question $question, Answer $answer)
     {
@@ -59,6 +54,14 @@ class AnswersController extends Controller
         $answer->update($request->validate([
             'body' => 'required',
         ]));
+
+        if($request->expectsJson())
+        {
+            return response()->json([
+                'message' => 'Your Question updated successfully!',
+                'body_html' => $answer->body_html,
+            ]);
+        }
 
         return redirect()->route('questions.show', $question->slug)->with('success', 'Your Question updated successfully!');
     }

@@ -53,12 +53,16 @@ class AnswerPolicy
      */
     public function update(User $user, Answer $answer)
     {
-        return $answer->user_id == $user->id;
+        $answerUid = (int)$answer->user_id;
+        $userID = (int)$user->id;
+        return $answerUid === $userID;
     }
 
     public function accept(User $user, Answer $answer)
     {
-        return $answer->user_id == $answer->question->user_id;
+        $answerUid = (int)$answer->user_id;
+        $questionUid = (int)$answer->question->user_id;
+        return ($user->id === $answerUid) && ($answerUid === $questionUid );
     }
 
     /**
@@ -70,7 +74,9 @@ class AnswerPolicy
      */
     public function delete(User $user, Answer $answer)
     {
-        return $answer->user_id == $user->id;
+        $answerUid = (int)$answer->user_id;
+        $userID = (int)$user->id;
+        return $answerUid === $userID;
     }
 
     /**
