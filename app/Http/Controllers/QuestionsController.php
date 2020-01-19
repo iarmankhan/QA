@@ -89,8 +89,7 @@ class QuestionsController extends Controller
         if($request->expectsJson()){
             return response()->json([
                 'message' => 'Your question has been updated',
-                'body_html' => $question->body_html,
-                'title' => $question->title
+                'body_html' => $question->body_html
             ]);
         }
 
