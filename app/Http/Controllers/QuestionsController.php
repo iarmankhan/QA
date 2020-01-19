@@ -83,7 +83,16 @@ class QuestionsController extends Controller
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
+        $this->authorize('update', $question);
         $question->update($request->only('title', 'body'));
+
+        if($request->expectsJson()){
+            return response()->json([
+                'message' => 'Your question has been updated',
+                'body_html' => $question->body_html,
+                'title' => $question->title
+            ]);
+        }
 
         return redirect()->route('questions.index')->with('success', 'Your question has been updated');
     }
@@ -91,13 +100,17 @@ class QuestionsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Question $question)
     {
         $this->authorize('delete', $question);
         $question->delete();
+
+        if(\request()->expectsJson()){
+            return response()->json([
+               'message' => 'Your question has been deleted!'
+            ]);
+        }
 
         return redirect()->route('questions.index')->with('success', 'Your question has been deleted!');
     }

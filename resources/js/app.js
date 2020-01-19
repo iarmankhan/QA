@@ -28,9 +28,8 @@ Vue.use(Authorization);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('user-info', require('./components/UserInfo').default);
-Vue.component('vote', require('./components/Vote').default);
-Vue.component('answers', require('./components/Answers').default);
+
+Vue.component('question-page', require('./pages/QuestionPage').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
